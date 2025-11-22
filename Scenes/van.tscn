@@ -231,7 +231,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8y3lu")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7e8qm"]
-size = Vector3(2.1881104, 2.2998657, 5.136841)
+size = Vector3(2.1881104, 2.6043277, 5.823303)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ccsvs"]
 resource_name = "body dark blue"
@@ -422,8 +422,7 @@ script = ExtResource("1_mxdf6")
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -0.96760386, 0.38955772, 1.7840372)
 use_as_steering = true
 wheel_roll_influence = 0.2
-suspension_travel = 10.0
-suspension_stiffness = 40.0
+suspension_travel = 1.0
 damping_compression = 1.9
 damping_relaxation = 2.0
 
@@ -436,8 +435,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0.9895564, 0.38955772, 1.7970473)
 use_as_steering = true
 wheel_roll_influence = 0.2
-suspension_travel = 10.0
-suspension_stiffness = 40.0
+suspension_travel = 1.0
 damping_compression = 1.9
 damping_relaxation = 2.0
 
@@ -450,8 +448,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0.9895564, 0.38955772, -2.1981404)
 use_as_traction = true
 wheel_roll_influence = 0.2
-suspension_travel = 10.0
-suspension_stiffness = 40.0
+suspension_travel = 1.0
 damping_compression = 1.9
 damping_relaxation = 2.0
 
@@ -464,8 +461,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -0.96920925, 0.38955772, -2.1981404)
 use_as_traction = true
 wheel_roll_influence = 0.2
-suspension_travel = 10.0
-suspension_stiffness = 40.0
+suspension_travel = 1.0
 damping_compression = 1.9
 damping_relaxation = 2.0
 
@@ -475,7 +471,7 @@ mesh = SubResource("ArrayMesh_t03dw")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010925293, 1.5439129, -0.4533081)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010925293, 1.3916819, -0.110076904)
 shape = SubResource("BoxShape3D_7e8qm")
 
 [node name="Van" type="MeshInstance3D" parent="."]
@@ -488,6 +484,7 @@ transform = Transform3D(-1, 4.371139e-08, -7.5710346e-08, 0, 0.8660254, 0.5, 8.7
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(450, 0, 0, 0, 450, 0, 0, 0, 450, 0, 2.2099488, 2.3573108)
+collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0005187988, 0, -0.004119873)
