@@ -16,9 +16,7 @@ func _physics_process(delta: float) -> void:
 		$Back_left.engine_force = acceleration * max_torque * (1 - rpm/ max_rpm)
 		rpm = $Back_left.get_rpm()
 		$Back_right.engine_force = acceleration * max_torque * (1 - rpm/ max_rpm)
-		print(rpm)
 	if Input.is_action_just_pressed("Hop"):
-		print("pressed", playerCan, playerOnTruck)
 	
 		if playerOnTruck == true:
 			print("hop out")
@@ -38,9 +36,7 @@ func _physics_process(delta: float) -> void:
 				BLOCK.emit()
 				camera.current = true
 
-	print(player)
 	var lappingbodies = area_3d.get_overlapping_bodies()
-	print(lappingbodies.has(player))
 	if lappingbodies.has(player):
 		playerCan = true
 	else:
