@@ -5,7 +5,7 @@ extends CharacterBody3D
 
 var movingBlocked = false
 const SENSITIVITY = 0.003
-const WALK_SPEED = 4
+const WALK_SPEED = 20
 const SPRINT_SPEED = 7 
 const JUMP_VELOCITY = 7
 var speed = WALK_SPEED

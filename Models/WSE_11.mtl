@@ -1,0 +1,132 @@
+# Blender 4.0.1 MTL File: 'WSE_11.blend'
+# www.blender.org
+
+newmtl Black_Box
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Black_Garage_Wndow_Frame
+Ns 360.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.015000 0.015000 0.015000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Brick
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/brick_plain_2_albedo.jpg
+map_Ns C:/brick_plain_2_roughness.jpg
+map_Bump -bm 1.000000 C:/brick_plain_2_normal.jpg
+
+newmtl Corrugated_PVC_Grey
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Corrugated_PVC_Grey_albedo.jpg
+map_Ns C:/Corrugated_PVC_roughness.jpg
+map_refl C:/Corrugated_PVC_metallic.jpg
+map_Bump -bm 2.000000 C:/Corrugated_PVC_normal.jpg
+
+newmtl Corrugated_Plates
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/corrugated_plates_albedo.jpg
+map_Ns C:/corrugated_plates_roughness.jpg
+map_Bump -bm 1.000000 C:/corrugated_plates_normal.jpg
+
+newmtl Eevee_Glass
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Fire_Exit_Sign
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Keep_Clear.jpg
+
+newmtl Flood_Lamp_2_Warm_lsrc_(30;25;20)
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump -bm 1.000000 C:/prg_flood_lamp_2_normal.png
+
+newmtl Garage_Pole
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Garage_Pole_BaseColor.jpg
+map_Ns C:/Garage_Pole_Roughness.jpg
+map_refl C:/Garage_Pole_Metallic.jpg
+map_Bump -bm 1.000000 C:/Garage_Pole_Normal.jpg
+
+newmtl Glass
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd C:/Glass_BaseColor.png
+map_Ns C:/Glass_Roughness.png
+map_refl C:/Glass_Metallic.png
+map_d C:/Glass_Alpha.png
+map_Bump -bm 1.000000 C:/Glass_Normal.png
+
+newmtl Metal_Tiles
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Metal_Panels_Horizontal_BaseColor.jpg
+map_Ns C:/Metal_Panels_Horizontal_Roughness.jpg
+map_Bump -bm 1.000000 C:/Metal_Panels_Horizontal_Normal.jpg
+
+newmtl Vent_Blue
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/vent_square_albedo.jpg
