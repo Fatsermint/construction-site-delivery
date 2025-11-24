@@ -5,22 +5,21 @@ extends CharacterBody3D
 
 var movingBlocked = false
 const SENSITIVITY = 0.003
-const WALK_SPEED = 20
+const WALK_SPEED = 4
 const SPRINT_SPEED = 7 
-const JUMP_VELOCITY = 7
-var speed = WALK_SPEED
+const JUMP_VELOCITY = 3
 
+var speed = WALK_SPEED
 const  BOB_FREQ = 2
 const BOB_AMP = 0.08
 var t_bob = 0
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 func _unhandled_input(event: InputEvent) -> void:
-
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		camera.position.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 func _physics_process(delta: float) -> void:
 	if movingBlocked == false:
 		if not is_on_floor():
@@ -28,7 +27,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		var input_dir := Input.get_vector("left", "right", "up", "down")
-		var direction := (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		var direction := (head.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		if direction:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed

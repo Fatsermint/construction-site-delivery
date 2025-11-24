@@ -1,17 +1,84 @@
-[gd_scene load_steps=3 format=3 uid="uid://dabjw7a3hw0i1"]
+[gd_scene load_steps=8 format=3 uid="uid://dabjw7a3hw0i1"]
 
 [ext_resource type="Texture2D" uid="uid://c2bq30xvqvj7c" path="res://Textures/uii__1_-removebg-preview.png" id="1_feyax"]
 [ext_resource type="FontFile" uid="uid://bt4dxwixkw6yv" path="res://Textures/ScienceGothic-VariableFont_CTRS,slnt,wdth,wght.ttf" id="1_ka2pi"]
+[ext_resource type="Script" uid="uid://cl0kgrdoexwew" path="res://Scenes/handler.gd" id="1_omtrn"]
 
-[node name="Tutorial" type="Control"]
+[sub_resource type="Animation" id="Animation_omtrn"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_i6t4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p8jf4"]
+resource_name = "disco"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(0, 1, 0.1833334, 1), Color(0, 0.83333325, 1, 1), Color(0.33333302, 0, 1, 1), Color(1, 0, 0.016666412, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p8jf4"]
+_data = {
+&"RESET": SubResource("Animation_i6t4g"),
+&"disco": SubResource("Animation_p8jf4"),
+&"show": SubResource("Animation_omtrn")
+}
+
+[node name="Ui" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_omtrn")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Delivery List" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -23,7 +90,7 @@ grow_vertical = 2
 scale = Vector2(0.5600009, 1)
 texture = ExtResource("1_feyax")
 
-[node name="Label" type="Label" parent="TextureRect"]
+[node name="Label" type="Label" parent="Delivery List"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.15900171
@@ -39,10 +106,455 @@ Floors: 102
 Stairs: 3"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="TextureRect"]
+[node name="Label2" type="Label" parent="Delivery List"]
+layout_mode = 0
+offset_top = 24.5
+offset_right = 578.0
+offset_bottom = 96.5
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 48
+text = "Delivery List"
+horizontal_alignment = 1
+
+[node name="DeliveryShop" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6032986
+anchor_top = 0.061728396
+anchor_right = 0.9723542
+anchor_bottom = 0.91836417
+offset_left = 6.1035156e-05
+offset_right = 158.84802
+offset_bottom = -128.09998
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.728, 1.3)
+texture = ExtResource("1_feyax")
+flip_h = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="DeliveryShop"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -224.69238
+offset_top = 17.692308
+offset_right = 223.30762
+offset_bottom = 112.69231
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 64
+text = "Frameworks"
+horizontal_alignment = 1
+
+[node name="walls" type="Control" parent="DeliveryShop"]
+anchors_preset = 0
+offset_left = 32.96703
+offset_top = 112.30769
+offset_right = 72.967026
+offset_bottom = 152.3077
+scale = Vector2(5.9738054, 1.4307698)
+mouse_filter = 1
+
+[node name="1" type="Button" parent="DeliveryShop/walls"]
+layout_mode = 0
+offset_left = 36.100826
+offset_right = 75.10083
+offset_bottom = 40.0
+scale = Vector2(0.3745578, 1)
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="DeliveryShop/walls/1"]
+layout_mode = 0
+offset_left = 1.2278144
+offset_top = -1.6129012
+offset_right = 218.22781
+offset_bottom = 141.3871
+scale = Vector2(0.1783699, 0.29605022)
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 96
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="10" type="Button" parent="DeliveryShop/walls"]
+layout_mode = 0
+offset_left = 53.116505
+offset_right = 92.11651
+offset_bottom = 40.0
+scale = Vector2(0.3745578, 1)
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="DeliveryShop/walls/10"]
+layout_mode = 0
+offset_left = 1.2278144
+offset_top = -1.6129012
+offset_right = 218.22781
+offset_bottom = 141.3871
+scale = Vector2(0.1783699, 0.29605022)
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 96
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="100" type="Button" parent="DeliveryShop/walls"]
+layout_mode = 0
+offset_left = 68.98247
+offset_right = 107.982475
+offset_bottom = 40.0
+scale = Vector2(0.3745578, 1)
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="DeliveryShop/walls/100"]
+layout_mode = 0
+offset_left = 1.2278144
+offset_top = -1.6129012
+offset_right = 218.22781
+offset_bottom = 141.3871
+scale = Vector2(0.1783699, 0.29605022)
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 96
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="DeliveryShop/walls"]
+layout_mode = 0
+offset_left = 1.149708
+offset_top = -1.6129012
+offset_right = 218.1497
+offset_bottom = 141.3871
+scale = Vector2(0.15381384, 0.29605022)
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 96
+text = "Wall"
+
+[node name="floors" type="Control" parent="DeliveryShop"]
+anchors_preset = 0
+offset_left = 32.96703
+offset_top = 171.53845
+offset_right = 72.967026
+offset_bottom = 211.53845
+scale = Vector2(5.9738054, 1.4307698)
+
+[node name="1" type="Button" parent="DeliveryShop/floors"]
+layout_mode = 0
+offset_left = 36.100826
+offset_right = 75.10083
+offset_bottom = 40.0
+scale = Vector2(0.3745578, 1)
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="DeliveryShop/floors/1"]
+layout_mode = 0
+offset_left = 1.2278144
+offset_top = -1.6129012
+offset_right = 218.22781
+offset_bottom = 141.3871
+scale = Vector2(0.1783699, 0.29605022)
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 96
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="10" type="Button" parent="DeliveryShop/floors"]
+layout_mode = 0
+offset_left = 53.116505
+offset_right = 92.11651
+offset_bottom = 40.0
+scale = Vector2(0.3745578, 1)
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="DeliveryShop/floors/10"]
+layout_mode = 0
+offset_left = 1.2278144
+offset_top = -1.6129012
+offset_right = 218.22781
+offset_bottom = 141.3871
+scale = Vector2(0.1783699, 0.29605022)
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 96
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="100" type="Button" parent="DeliveryShop/floors"]
+layout_mode = 0
+offset_left = 68.98247
+offset_right = 107.982475
+offset_bottom = 40.0
+scale = Vector2(0.3745578, 1)
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="DeliveryShop/floors/100"]
+layout_mode = 0
+offset_left = 1.2278144
+offset_top = -1.6129012
+offset_right = 218.22781
+offset_bottom = 141.3871
+scale = Vector2(0.1783699, 0.29605022)
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 96
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="DeliveryShop/floors"]
+layout_mode = 0
+offset_left = 1.149708
+offset_top = -1.6129012
+offset_right = 218.1497
+offset_bottom = 141.3871
+scale = Vector2(0.117020935, 0.29605022)
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 96
+text = "Floor"
+
+[node name="stairs" type="Control" parent="DeliveryShop"]
+anchors_preset = 0
+offset_left = 32.96703
+offset_top = 231.53845
+offset_right = 72.967026
+offset_bottom = 271.53845
+scale = Vector2(5.9738054, 1.4307698)
+
+[node name="1" type="Button" parent="DeliveryShop/stairs"]
+layout_mode = 0
+offset_left = 36.100826
+offset_right = 75.10083
+offset_bottom = 40.0
+scale = Vector2(0.3745578, 1)
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="DeliveryShop/stairs/1"]
+layout_mode = 0
+offset_left = 1.2278144
+offset_top = -1.6129012
+offset_right = 218.22781
+offset_bottom = 141.3871
+scale = Vector2(0.1783699, 0.29605022)
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 96
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="10" type="Button" parent="DeliveryShop/stairs"]
+layout_mode = 0
+offset_left = 53.116505
+offset_right = 92.11651
+offset_bottom = 40.0
+scale = Vector2(0.3745578, 1)
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="DeliveryShop/stairs/10"]
+layout_mode = 0
+offset_left = 1.2278144
+offset_top = -1.6129012
+offset_right = 218.22781
+offset_bottom = 141.3871
+scale = Vector2(0.1783699, 0.29605022)
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 96
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="100" type="Button" parent="DeliveryShop/stairs"]
+layout_mode = 0
+offset_left = 68.98247
+offset_right = 107.982475
+offset_bottom = 40.0
+scale = Vector2(0.3745578, 1)
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="DeliveryShop/stairs/100"]
+layout_mode = 0
+offset_left = 1.2278144
+offset_top = -1.6129012
+offset_right = 218.22781
+offset_bottom = 141.3871
+scale = Vector2(0.1783699, 0.29605022)
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 96
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="DeliveryShop/stairs"]
+layout_mode = 0
+offset_left = 1.149708
+offset_top = -1.6129012
+offset_right = 218.1497
+offset_bottom = 141.3871
+scale = Vector2(0.09862448, 0.29605022)
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 96
+text = "Stairs"
+
+[node name="ceilings" type="Control" parent="DeliveryShop"]
+anchors_preset = 0
+offset_left = 32.96703
+offset_top = 291.53845
+offset_right = 72.967026
+offset_bottom = 331.53845
+scale = Vector2(5.9738054, 1.4307698)
+
+[node name="1" type="Button" parent="DeliveryShop/ceilings"]
+layout_mode = 0
+offset_left = 36.100826
+offset_right = 75.10083
+offset_bottom = 40.0
+scale = Vector2(0.3745578, 1)
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="DeliveryShop/ceilings/1"]
+layout_mode = 0
+offset_left = 1.2278144
+offset_top = -1.6129012
+offset_right = 218.22781
+offset_bottom = 141.3871
+scale = Vector2(0.1783699, 0.29605022)
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 96
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="10" type="Button" parent="DeliveryShop/ceilings"]
+layout_mode = 0
+offset_left = 53.116505
+offset_right = 92.11651
+offset_bottom = 40.0
+scale = Vector2(0.3745578, 1)
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="DeliveryShop/ceilings/10"]
+layout_mode = 0
+offset_left = 1.2278144
+offset_top = -1.6129012
+offset_right = 218.22781
+offset_bottom = 141.3871
+scale = Vector2(0.1783699, 0.29605022)
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 96
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="100" type="Button" parent="DeliveryShop/ceilings"]
+layout_mode = 0
+offset_left = 68.98247
+offset_right = 107.982475
+offset_bottom = 40.0
+scale = Vector2(0.3745578, 1)
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="DeliveryShop/ceilings/100"]
+layout_mode = 0
+offset_left = 1.2278144
+offset_top = -1.6129012
+offset_right = 218.22781
+offset_bottom = 141.3871
+scale = Vector2(0.1783699, 0.29605022)
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 96
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="DeliveryShop/ceilings"]
+layout_mode = 0
+offset_left = 1.149708
+offset_top = -1.6129012
+offset_right = 218.1497
+offset_bottom = 141.3871
+scale = Vector2(0.08942794, 0.29605022)
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 96
+text = "Ceiling"
+
+[node name="Ready" type="Button" parent="DeliveryShop"]
+self_modulate = Color(0.16699994, 1, 0.01999998, 0)
+layout_mode = 0
+offset_left = 225.27475
+offset_top = 359.23074
+offset_right = 281.27475
+offset_bottom = 390.23074
+scale = Vector2(2.8681421, 1.1230766)
+text = "Ready"
+
+[node name="Label" type="Label" parent="DeliveryShop/Ready"]
+z_index = 1
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+scale = Vector2(0.5054945, 0.63076925)
 theme_override_fonts/font = ExtResource("1_ka2pi")
 theme_override_font_sizes/font_size = 32
-text = "Things that need to be delivered"
+text = "Ready"
+
+[node name="ColorRect" type="ColorRect" parent="DeliveryShop/Ready"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 1, 0.3166666, 1)
+
+[node name="Close" type="Button" parent="DeliveryShop"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.87027705
+anchor_top = 0.04503693
+anchor_right = 0.96074873
+anchor_bottom = 0.10931365
+offset_right = -44.83545
+offset_bottom = -19.44616
+grow_horizontal = 0
+scale = Vector2(6.604409, 3.43077)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="DeliveryShop/Close"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -381.0
+offset_top = -111.0
+offset_right = 381.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_ka2pi")
+theme_override_font_sizes/font_size = 36
+text = "WOW! You did it. Now Framework can 
+send laptops again.. Thank You so much!!!!"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
+libraries = {
+&"": SubResource("AnimationLibrary_p8jf4")
+}
+
+[connection signal="pressed" from="DeliveryShop/walls/1" to="." method="_on_1Wall_pressed"]
+[connection signal="pressed" from="DeliveryShop/Ready" to="." method="_on_ready_pressed"]
+[connection signal="pressed" from="DeliveryShop/Close" to="." method="_on_close_pressed"]
