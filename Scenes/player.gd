@@ -7,7 +7,7 @@ var movingBlocked = false
 const SENSITIVITY = 0.003
 const WALK_SPEED = 4
 const SPRINT_SPEED = 7 
-const JUMP_VELOCITY = 3
+const JUMP_VELOCITY = 4
 
 var speed = WALK_SPEED
 const  BOB_FREQ = 2
