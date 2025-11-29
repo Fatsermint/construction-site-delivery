@@ -19,6 +19,10 @@ config/icon="res://images/icon.svg"
 
 GlobalVariables="*res://Scenes/GlobalVariables.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
