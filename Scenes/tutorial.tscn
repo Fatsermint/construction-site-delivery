@@ -116,6 +116,7 @@ text = "Delivery List"
 horizontal_alignment = 1
 
 [node name="DeliveryShop" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 anchor_left = 0.6032986
 anchor_top = 0.061728396
